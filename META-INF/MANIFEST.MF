@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: AnnotationsDemo
+Bundle-SymbolicName: annotations.demo;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: annotations.demo.Activator
+Require-Bundle: org.eclipse.core.resources,
+ org.eclipse.core.runtime,
+ org.eclipse.jdt.core,
+ org.eclipse.jdt.core.manipulation,
+ org.eclipse.jdt.ui,
+ org.eclipse.jface.text,
+ org.eclipse.ui,
+ org.eclipse.ui.browser,
+ org.eclipse.ui.editors,
+ org.eclipse.ui.workbench.texteditor,
+ org.scala-lang.scala-library,
+ org.scala-lang.scala-reflect,
+ org.scala-lang.scala-compiler,
+ org.scala-ide.sdt.core,
+ org.scala-ide.sbt.compiler.interface,
+ org.scala-ide.sbt.full.library
+Import-Package: 
+ scala.tools.eclipse.contribution.weaving.jdt;apply-aspects:=false
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
