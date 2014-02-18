@@ -12,22 +12,32 @@ import preferences.MutableCollectionPreferencePage
 import scala.tools.eclipse.semantic.SemanticAction
 import org.eclipse.jdt.internal.ui.javaeditor.JavaSourceViewer
 
+/**
+ * Object with some common properties used by this plugin.
+ */
 object MutableCollectionHighlighter {
+  
+  /** Id of annotation, used in plugin.xml */
   lazy val ID = "annotations.demo.mutable"
 
+  /** Traverser that looks for all method calls on children of collection.mutable.Traversable */
   lazy val traverser = AllMethodsTraverserDefinition(
-    id = TraverserId(MutableCollectionHighlighter.ID),
+    id = TraverserId(ID),
     message = "Method call on a mutable collection.",
     typeDefinition = TypeDefinition("scala" :: "collection" :: "mutable" :: Nil, "Traversable"))
 
+  /** Preference page */
   lazy val properties = MutableCollectionPreferencePage.properties
   
-  lazy val actions: List[JavaSourceViewer => SemanticAction] = try {
+  /** Highlighting actions */
+  lazy val actions: List[JavaSourceViewer => SemanticAction] =
     List(viewer => new CustomSemanticAction(viewer, traverser, properties))
-  } catch {
-    case e => Nil
-  }
 }
 
+/**
+ * Custom highlihter for mutable collection methods.
+ * 
+ * It's plugged to Scala IDE extension (see plugin.xml).
+ */
 class MutableCollectionHighlighter extends SemanticHighlightingReconciliationParticipant(
   reconciler = new SemanticHighlightingReconciliation(actions))
