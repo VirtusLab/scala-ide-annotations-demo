@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension point="org.eclipse.ui.preferencePages">
-      <page
-            category="org.scala-ide.sdt.core.preferences"
-            class="annotations.demo.preferences.MutableCollectionPreferencePage"
-            id="annotations.demo.preferences.MutableCollectionPreferencePage"
-            name="Mutable collection preferences">
-      </page>
-   </extension>
-   
-   <extension point="org.eclipse.core.runtime.preferences">
-      <initializer class="annotations.demo.preferences.MutableCollectionPreferenceInitializer"/>
-   </extension>
-   
    <extension point="org.eclipse.ui.editors.annotationTypes">
       <type name="annotations.demo.mutable"/>
    </extension>
