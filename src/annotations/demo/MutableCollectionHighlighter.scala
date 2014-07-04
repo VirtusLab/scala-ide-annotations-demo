@@ -1,14 +1,13 @@
 package annotations.demo
 
-import MutableCollectionHighlighter._
 import org.eclipse.jdt.internal.ui.javaeditor.JavaSourceViewer
-import org.scalaide.ui.internal.editor.decorators.custom.AllMethodsTraverserDef
 import org.scalaide.ui.internal.editor.decorators.SemanticAction
+import org.scalaide.ui.internal.editor.decorators.custom.AllMethodsTraverserDef
 import org.scalaide.ui.internal.editor.decorators.custom.CustomSemanticAction
-import org.scalaide.ui.internal.editor.decorators.custom.TraverserId
-import org.scalaide.ui.internal.editor.decorators.semantichighlighting.SemanticHighlightingReconciliationParticipant
-import org.scalaide.ui.internal.editor.decorators.semantichighlighting.SemanticHighlightingReconciliation
 import org.scalaide.ui.internal.editor.decorators.custom.TraverserDef.TypeDefinition
+import org.scalaide.ui.internal.editor.decorators.semantichighlighting.SemanticHighlightingReconciliation
+import org.scalaide.ui.internal.editor.decorators.semantichighlighting.SemanticHighlightingReconciliationParticipant
+
 
 /**
  * Object with some common properties used by this plugin.
@@ -35,4 +34,4 @@ object MutableCollectionHighlighter {
  * It's plugged to Scala IDE extension (see plugin.xml).
  */
 class MutableCollectionHighlighter extends SemanticHighlightingReconciliationParticipant(
-  reconciler = new SemanticHighlightingReconciliation(actions))
+  reconciler = new SemanticHighlightingReconciliation(MutableCollectionHighlighter.actions))
