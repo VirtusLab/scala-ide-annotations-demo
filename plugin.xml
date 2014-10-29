@@ -1,37 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.4"?>
 <plugin>
-   <extension point="org.eclipse.ui.editors.annotationTypes">
-      <type name="annotations.demo.mutable"/>
-   </extension>
-   
-   <extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
-     <specification
-         annotationType="annotations.demo.mutable"
-         colorPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.color"
-         colorPreferenceValue="224,25,25"
-         contributesToHeader="false"
-         includeOnPreferencePage="true"
-         icon="icons/mutable.gif"
-         label="Mutable collection calls"
-         overviewRulerPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.rulers.overview"
-         overviewRulerPreferenceValue="false"
-         presentationLayer="5"
-         symbolicIcon="info"
-         textPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.text"
-         textPreferenceValue="true"
-         textStylePreferenceKey="scala.tools.eclipse.ui.preferences.mutable.textStylePreference"
-         textStylePreferenceValue="SQUIGGLES"
-         verticalRulerPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.rulers.vertical"
-         verticalRulerPreferenceValue="true">
-	    </specification>
+	<extension point="org.eclipse.ui.editors.annotationTypes">
+		<type name="annotations.demo.mutable" />
 	</extension>
-	
-	<extension point="org.scala-ide.sdt.core.reconciliationParticipants">
-	    <participant
-	          class="annotations.demo.MutableCollectionHighlighter"
-	          id="annotations.demo.MutableCollectionHighlighter"
-	          name="Mutable collections calls highlighting">
-	    </participant>
+
+	<extension point="org.eclipse.ui.editors.markerAnnotationSpecification">
+		<specification
+			annotationType="annotations.demo.mutable"
+			colorPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.color"
+			colorPreferenceValue="224,25,25"
+			contributesToHeader="false"
+			includeOnPreferencePage="true"
+			icon="icons/mutable.gif"
+			label="Mutable collection calls"
+			overviewRulerPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.rulers.overview"
+			overviewRulerPreferenceValue="false"
+			presentationLayer="5"
+			symbolicIcon="info"
+			textPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.text"
+			textPreferenceValue="true"
+			textStylePreferenceKey="scala.tools.eclipse.ui.preferences.mutable.textStylePreference"
+			textStylePreferenceValue="SQUIGGLES"
+			verticalRulerPreferenceKey="scala.tools.eclipse.ui.preferences.mutable.rulers.vertical"
+			verticalRulerPreferenceValue="true">
+		</specification>
+	</extension>
+
+	<extension point="org.scala-ide.sdt.core.semanticHighlightingParticipants">
+		<participant
+			class="annotations.demo.MutableCollectionCallHighlightingParticipant">
+		</participant>
 	</extension>
 </plugin>
